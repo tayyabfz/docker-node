@@ -1,6 +1,8 @@
 ## Basic Commands
 
-- ```docker run -it --name my-any_container_name real-container-name```
+- ```bash
+ docker run -it --name my-any_container_name real-container-name
+```
 
 - ```docker build -t any-name .```
 - ```docker compose up```
@@ -14,5 +16,5 @@
 ## In terminal: 
 
 
-```crl + c (cancel)```
-```crl + d (exit)```
+- ```crl + c (cancel)```
+- ```crl + d (exit)```
