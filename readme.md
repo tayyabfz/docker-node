@@ -1,3 +1,5 @@
+## Basic Commands
+
 ```docker run -it --name my-any_container_name real-container-name```
 
 ```docker build -t any-name .```
@@ -9,6 +11,8 @@
 ```docker network inspect bridge``` 
 ```docker network ls```
 
-#In terminal: 
+## In terminal: 
+
+
 ```crl + c (cancel)```
 ```crl + d (exit)```
