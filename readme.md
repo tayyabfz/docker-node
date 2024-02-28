@@ -23,9 +23,9 @@
 ```bash
  docker network ls
 ```
-
-## In terminal: 
-
-
-- ```crl + c (cancel)```
-- ```crl + d (exit)```
+```bash
+ crl + c (cancel)
+```
+```bash
+ crl + d (exit)
+```
