@@ -1,17 +1,28 @@
 ## Basic Commands
 
-- ```bash
+```bash
  docker run -it --name my-any_container_name real-container-name
 ```
 
-- ```docker build -t any-name .```
-- ```docker compose up```
-- ```docker compose down```
-- ```docker compose up -d #background```
+```bash
+ docker build -t any-name .
+```
+```bash
+ docker compose up
+```
+```bash
+ docker compose down
+```
+```bash
+ docker compose up -d #background
+```
 
-
-- ```docker network inspect bridge``` 
-- ```docker network ls```
+```bash
+ docker network inspect bridge
+``` 
+```bash
+ docker network ls
+```
 
 ## In terminal: 
 
