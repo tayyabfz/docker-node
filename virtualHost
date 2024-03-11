@@ -1,0 +1,68 @@
+<VirtualHost *:80>
+    ServerName api.theprojectring.com
+    ServerAlias api.theprojectring.com
+    ProxyRequests Off
+    ProxyPreserveHost On
+    ProxyVia Full
+    <Proxy *>
+        Require all granted
+    </Proxy>
+    ProxyPass / http://localhost:3000/
+    ProxyPassReverse / http://localhost:3000/
+    RewriteEngine on
+    RewriteCond %{SERVER_NAME} = api.theprojectring.com
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+
+
+<VirtualHost *:80>
+    ServerName api.theprojectring.com
+    ServerAlias api.theprojectring.com
+    ProxyRequests Off
+    ProxyPreserveHost On
+    ProxyVia Full
+    <Proxy *>
+      Require all granted
+      # Check if backend can handle HTTPS (Optional)
+      ProxySetHeader X-Forwarded-Proto https
+    </Proxy>
+    ProxyPass / http://localhost:3000/
+    ProxyPassReverse / http://localhost:3000/
+    RewriteEngine on
+    RewriteCond %{SERVER_NAME} = api.theprojectring.com
+    RewriteRule ^ https://%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+
+
+
+/// Correct one
+<VirtualHost *:80>
+    ServerName api.theprojectring.com
+    ServerAlias api.theprojectring.com
+    ProxyRequests Off
+    ProxyPreserveHost On
+    ProxyVia Full
+    <Proxy *>
+        Require all granted
+    </Proxy>
+    ProxyPass / http://localhost:3000/
+    ProxyPassReverse / http://localhost:3000/
+    RewriteEngine on
+    RewriteCond %{SERVER_NAME} ^api\.theprojectring\.com$
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+
+
+http://api.theprojectring.com/
+
+
+server_name api.theprojectring.com;
+
+location / {
+    proxy_pass http://localhost:5000; #whatever port your app runs on
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+}
